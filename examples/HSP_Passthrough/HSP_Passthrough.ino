@@ -63,6 +63,8 @@ void setup() {
       Idle() is the *easy mode* way to handle controls.
       You can also read footswitches, pots, and toggles manually if you want
       more control or special behavior.
+*/
+
 void loop() {
     hpcb.Idle(); // Run the HaroldPCB background tasks continuously.
 }

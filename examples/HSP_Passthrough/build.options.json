@@ -1,0 +1,10 @@
+{
+  "additionalFiles": "",
+  "builtInLibrariesFolders": "C:\\Users\\oryan\\AppData\\Local\\Arduino15\\libraries",
+  "compiler.optimization_flags": "{build.flags.optimize} {build.flags.debug}",
+  "customBuildProperties": "build.warn_data_percentage=75",
+  "fqbn": "STMicroelectronics:stm32:GenH7:pnum=DAISY_SEED,xserial=generic,usb=none,xusb=FS,opt=osstd,dbg=none,rtlib=nano,upload_method=swdMethod",
+  "hardwareFolders": "c:\\Users\\oryan\\AppData\\Local\\Arduino15\\packages",
+  "otherLibrariesFolders": "c:\\Users\\oryan\\Documents\\Arduino\\libraries",
+  "sketchLocation": "C:\\Users\\oryan\\Documents\\Arduino\\libraries\\HaroldPCB\\examples\\Passthrough\\HSP_Passthrough"
+}

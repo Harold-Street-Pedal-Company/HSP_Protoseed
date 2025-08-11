@@ -83,6 +83,8 @@ void setup() {
 void loop() {
   hpcb.Idle();                  // keep controls responsive (debounce, etc.)
 }
+```
+
 API reference
 Core
 bool Init(uint32_t sample_rate_hz = 48000, uint16_t block_size = 48)

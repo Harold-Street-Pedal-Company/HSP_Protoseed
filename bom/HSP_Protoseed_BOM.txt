@@ -1,9 +1,8 @@
-## Bill of Materials
+Bill of Materials
 
 ---
 
 ### Resistors
-![Resistors](images/resistors.png)
 
 | #  | References         | Value  | Qty |
 |----|--------------------|--------|-----|
@@ -17,7 +16,6 @@
 ---
 
 ### Capacitors
-![Capacitors](images/capacitors.png)
 
 | #  | References         | Value  | Qty |
 |----|--------------------|--------|-----|
@@ -45,7 +43,6 @@
 ---
 
 ### Switches
-![Switches](images/switches.png)
 
 | #  | References         | Value  | Qty |
 |----|--------------------|--------|-----|
@@ -59,7 +56,6 @@
 ---
 
 ### Potentiometers
-![Potentiometers](images/pots.png)
 
 | #  | References                              | Value | Qty |
 |----|-----------------------------------------|-------|-----|
@@ -68,7 +64,6 @@
 ---
 
 ### Connectors
-![Connectors](images/connectors.png)
 
 | #  | References         | Value  | Qty |
 |----|--------------------|--------|-----|

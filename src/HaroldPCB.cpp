@@ -31,19 +31,30 @@ void HaroldPCB::StopAudio() {
   DAISY.end();
 }
 
+const char* HaroldPCB::Version() {
+  return HPCB_VERSION_STR;
+}
+
+// HaroldPCB.cpp — _MonoThunk() with R muted in mono mode
 void HaroldPCB::_MonoThunk(float **in, float **out, size_t size) {
   HPCB_AudioCB_Mono cb = s_user_mono_;
   if (!cb) {
-    for (size_t i = 0; i < size; ++i) { out[0][i] = in[0][i]; out[1][i] = in[0][i]; }
+    // No user callback: pass L through, keep R silent
+    for (size_t i = 0; i < size; ++i) {
+      out[0][i] = in[0][i];
+      out[1][i] = 0.0f;      // <-- force Right silent
+    }
     return;
   }
+
   for (size_t i = 0; i < size; ++i) {
     float o = 0.0f;
     cb(in[0][i], o);
     out[0][i] = o;
-    out[1][i] = o; // mirror to R (harmless even if jack unwired)
+    out[1][i] = 0.0f;        // <-- force Right silent
   }
 }
+
 
 float HaroldPCB::ReadPot(uint8_t index) {
   if (index >= kNumPots) return 0.0f;

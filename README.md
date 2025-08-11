@@ -1,90 +1,70 @@
-# HSP_Protoseed (HaroldPCB)
+HSP Protoseed
+Beginner-friendly Arduino library for quick guitar pedal prototyping on Daisy Seed (HSP v1.2 hardware). It handles audio, pots, toggles, LEDs, and footswitch events with simple, clear calls—so you can focus on creating and testing pedal ideas fast.
 
-Beginner-friendly Arduino library for **Daisy Seed** pedal prototyping on the Harold Street Pedal Company PCB.  
-It wraps audio bring-up, pots/toggles/footswitch reads, and LED control into a tiny API with sane defaults. Vendored DaisyDuino is included, so no extra installs.
+Mono audio (Left in/out). The library mutes Right out for you.
 
-- **Mono audio path**: processes **left** input → **left** output. Right output is **silent** by default.  
-- **LEDs are active-low**.  
-- **Idle()** keeps the control system responsive (debounce, state updates).  
+Controls: 6 pots, 4 toggles, 2 footswitches, 2 LEDs (active-low).
 
-License: **GNU GPLv3**
+No RTOS, no backend—just Arduino sketches.
 
-## Table of contents
-- [Install](#install)
-- [Hardware assumptions](#hardware-assumptions)
-- [Folder layout](#folder-layout)
-- [Quick start](#quick-start)
-- [API reference](#api-reference)
-  - [Core](#core)
-  - [Controls](#controls)
-  - [LEDs](#leds)
-  - [Idle / background](#idle--background)
-  - [Enums & structs](#enums--structs)
-- [Behavior notes](#behavior-notes)
-- [Versioning](#versioning)
-- [Contributing](#contributing)
+License: GNU GPLv3
 
-## Install
-1. Clone or download this repo.
-2. Put the folder into your Arduino libraries dir:
-   - **Windows**: `C:\Users\<you>\Documents\Arduino\libraries\HSP_Protoseed`
-3. Restart Arduino IDE.
+Table of contents
+Quick start
 
-> We vendor DaisyDuino under `src/vendor/daisy`, so you don’t need to install it separately.
+Project structure
 
-## Hardware assumptions
-- **Board**: Daisy Seed
-- **Sample rate**: 48 kHz default (96 kHz supported via `Init(96000, ...)`)
-- **Block size**: 48 samples by default
-- **Mono pipeline**: left in → left out; right out is muted
+API reference
 
-### HaroldPCB v1.2 pin map (used internally)
-- **Pots (6)**: `A6, A5, A4, A3, A2, A1` (0…1 normalized)
-- **Toggles (4)**: `10, 9, 8, 7` (active-low)
-- **Footswitches (2)**: `26, 25` (active-low)
-- **LEDs (2)**: `22, 23` (active-low)
+Types
 
-You address these by **index** (0-based). You don’t pass pin numbers.
+Core
 
-## Folder layout
-HSP_Protoseed/
-README.md
-library.properties
-src/
-HaroldPCB.h
-HaroldPCB.cpp
-ThirdPartyDaisy.h
-vendor/
-daisy/
-src/...
-utility/...
-examples/
-passthrough/
-passthrough.ino
+Controls
 
-csharp
+LEDs
+
+Idle loop
+
+Hardware notes
+
+FAQ
+
+Contributing
+
+License
+
+Quick start
+cpp
 Copy
 Edit
-
-## Quick start
-```cpp
 #include <HaroldPCB.h>
 
 HaroldPCB hpcb;
 
-// Your mono audio callback: in (L) → out (L). R is muted by the library.
-void AudioCallback(float in, float &out) { out = in; }
+// Your mono audio callback: in (L) ➜ out (L). R is muted by the library.
+void AudioCallback(float in, float &out) {
+  // simple passthrough:
+  out = in;
+}
 
 void setup() {
-  hpcb.Init(48000, 48);         // rate, blocksize (defaults if omitted)
+  // Init audio @48k / blocksize 48 (both have defaults if omitted)
+  hpcb.Init(48000, 48);
   hpcb.StartAudio(AudioCallback);
 }
 
 void loop() {
-  hpcb.Idle();                  // keep controls responsive (debounce, etc.)
-}
-```
+  // Keep controls responsive (debounce, smoothing, etc.)
+  hpcb.Idle();
 
+  // Example reads:
+  float gain = hpcb.ReadPotSmoothed(0, 25.0f);  // pot0 smoothed over ~25 ms
+  bool  on   = hpcb.ReadToggle(0);              // toggle0 (active-low hardware)
+
+  // LED1 mirrors toggle for fun:
+  hpcb.SetLED(1, on);
+}
 ℹ️ Heads-up: Idle() is the easiest place to read footswitches and toggles in a simple sketch.
 It’s not the only way—you can also read switches in the audio callback (carefully).
 We’ll cover that approach in a later lesson.

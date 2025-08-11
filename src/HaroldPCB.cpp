@@ -82,12 +82,12 @@ float HaroldPCB::ReadPotSmoothed(uint8_t index, float smooth_ms) {
 
 bool HaroldPCB::ReadToggle(uint8_t index) const {
   if (index >= kNumToggles) return false;
-  return digitalRead(toggle_pins_[index]) == LOW; // active-low
+  return digitalRead(toggle_pins_[index]) == LOW;
 }
 
 bool HaroldPCB::FootswitchIsPressed(uint8_t index) const {
   if (index >= kNumFS) return false;
-  return digitalRead(fs_pins_[index]) == LOW; // active-low
+  return digitalRead(fs_pins_[index]) == LOW;
 }
 
 bool HaroldPCB::FootswitchIsReleased(uint8_t index) const {
@@ -97,7 +97,7 @@ bool HaroldPCB::FootswitchIsReleased(uint8_t index) const {
 
 void HaroldPCB::SetLED(uint8_t index, bool on) {
   if (index >= kNumLEDs) return;
-  digitalWrite(led_pins_[index], on ? LOW : HIGH); // active-low
+  digitalWrite(led_pins_[index], on ? HIGH : LOW);
 }
 
 void HaroldPCB::Idle() {

@@ -1,0 +1,31 @@
+	Sourced	Placed	References	Value	Quantity
+1			R4, R5, R6, R7	20k	4
+2			R9, R10	CLR	2
+3			R1	100k	1
+4			R2	100R	1
+5			R3	1k	1
+6			R8	3k3	1
+7			C2, C3, C8	1u	3
+8			C5, C10, C11	100n	3
+9			C1	100p	1
+10			C4	100u	1
+11			C6	1n	1
+12			C9	2n2	1
+13			D1	1N5817	1
+14			D2	LED1	1
+15			D3	LED2	1
+16			U1	TL072	1
+17			U2	LM7805CT	1
+18			SW1	FS1	1
+19			SW2	FS2	1
+20			SW3	TS1	1
+21			SW4	TS2	1
+22			SW5	TS3	1
+23			SW6	TS4	1
+24			A1	Electrosmith_Daisy_Seed_Rev7	1
+25			RV1, RV2, RV3, RV4, RV5, RV6	B10k	6
+26			JP1	JOUT	1
+27			J1	+9V	1
+28			J2	GND	1
+29			J3	INP	1
+30			J4	OUT	1

@@ -1,4 +1,3 @@
-@'
 # HSP_Protoseed (HaroldPCB)
 
 Beginner-friendly Arduino library for **Daisy Seed** pedal prototyping on the Harold Street Pedal Company PCB.  
@@ -142,4 +141,4 @@ PRs welcome. C++17, Arduino constraints (no RTTI/exceptions).
 Maintain active-low semantics and 0-based indexing.
 
 Verify: 48k/96k start, 0…1 pot reads, LED logic (LOW=on), right channel silent.
-'@ | Set-Content -NoNewline -Encoding UTF8 README.md
+

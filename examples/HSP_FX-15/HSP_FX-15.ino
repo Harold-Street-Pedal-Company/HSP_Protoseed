@@ -305,7 +305,7 @@ void setup() {
   dryHP.setLP(gSR, 120.f);
   dryLP.setLP(gSR, 7800.f);
 
-  H.SetLED(LED1, !g_bypass);
+  H.SetLED(LED1, g_bypass);
 }
 
 void loop() {

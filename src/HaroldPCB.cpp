@@ -188,6 +188,6 @@ void HaroldPCB::SetMultiClickGap(uint16_t ms) { fs_timing_.multiclick_gap_ms = m
 void HaroldPCB::SetLED(uint8_t index, bool on)
 {
     if(index >= HPCB_NUM_LEDS) return;
-    digitalWrite(led_pins_[index], !on); // FLIPPED FOR ACTIVE-HIGH IN LIBRARY
+    digitalWrite(led_pins_[index], on); 
 
 }

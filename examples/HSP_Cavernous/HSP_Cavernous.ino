@@ -486,8 +486,8 @@ void loop() {
   gUI.fs_hold = fs1_now;
 
   // LEDs: LED1 follows FS1; LED2 shows active state
-  H.SetLED(LED1, !fs1_now);
-  H.SetLED(LED2, !gActive);
+  H.SetLED(LED1, fs1_now);
+  H.SetLED(LED2, gActive);
 
   updateDerived();
 }

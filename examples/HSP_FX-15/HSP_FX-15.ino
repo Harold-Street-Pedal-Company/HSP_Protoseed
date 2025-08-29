@@ -220,7 +220,7 @@ static void readControls() {
   if (fs2_prev && !fs2_now) { g_bypass = !g_bypass; }
   fs2_prev = fs2_now;
 
-  H.SetLED(LED1, !g_bypass);
+  H.SetLED(LED1, g_bypass);
 }
 
 // =======================================================

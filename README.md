@@ -1,4 +1,4 @@
-# HaroldPCB Library (Harold Street Pedals, 2025)
+9# HaroldPCB Library (Harold Street Pedals, 2025)
 
 A small, opinionated Arduino/C++ library and set of **textbook-style pedal examples** for builders, tinkerers, and nerds. Each example is a working effect and a teaching page, written to be readable for beginners while still exposing useful internals for modders.
 
@@ -156,7 +156,7 @@ Still stuck? Unplug/replug USB and repeat step 4 carefully.
 
 > ⚠️ **Low‑latency default**: 48 kHz / 8‑sample blocks ≈ **0.17 ms** block latency (plus codec/IO). If you change `BLOCK_SIZE`, expect latency/CPU trade‑offs.
 
-> ⚠️ **THERE IS NO SERIAL MONITOR AVAILABLE!**  Nor is there any api for SD card.  they exist in the __disabled__ folder should you require them (you shouldn't) but, they caused me issues during vendoring and this was the quick and dirty solution.
+> ⚠️ **THERE IS NO SERIAL MONITOR AVAILABLE!** (DFU mode)
 
 ---
 
